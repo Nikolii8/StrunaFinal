@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <title>About Us</title>
+  <!-- CSS от static -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+  <!-- Google Fonts за Podkova -->
+  <link href="https://fonts.googleapis.com/css2?family=Podkova:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="homepage">
+
+  <!-- Декоративна grid overlay -->
+  <div class="grid-ghost"></div>
+
+  <!-- Хедър с навигация -->
+  <header class="header">
+    <div class="logo">Struna</div>
+
+    <nav class="nav">
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('about') }}" class="active">About Us</a>
+      <a href="{{ url_for('contact') }}">Contact</a>
+    </nav>
+
+  </header>
+
+  <!-- About Page Background -->
+  <div class="about-page-bg">
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+      <h1>About Us</h1>
+      <p>Struna develops innovative wearable technology and smart applications to help people effortlessly maintain healthy posture in their daily lives.</p>
+    </section>
+
+    <div class="about-content">
+
+      <!-- Why Section / Cards -->
+      <section class="why-section">
+
+        <div class="why-card">
+          <div class="why-icon">🎯</div>
+          <div class="why-text">
+            <h2>Our Mission</h2>
+            <p>Our mission is to provide real-time feedback and guidance that empowers users to improve posture and overall wellbeing.</p>
+          </div>
+          <div class="why-image">
+            <img src="{{ url_for('static', filename='mision.avif') }}" alt="Mission Image">
+          </div>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">🌟</div>
+          <div class="why-text">
+            <h2>Our Vision</h2>
+            <p>We envision a world where maintaining good posture is seamless, natural, and integrated into everyday routines.</p>
+          </div>
+          <div class="why-image">
+            <img src="{{ url_for('static', filename='goodposture.jpg') }}" alt="Vision Image">
+          </div>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">🤝</div>
+          <div class="why-text">
+            <h2>Our Values</h2>
+            <p>We value innovation, user comfort, discretion, and promoting long-term health through thoughtful design and technology.</p>
+          </div>
+          <div class="why-image">
+            <img src="{{ url_for('static', filename='inovation.webp') }}" alt="Values Image">
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Additional Section with Images / Info -->
+      <section class="team-section" style="margin-top: 3rem;">
+        <h2 style="font-family: 'Podkova', serif; font-size: 2rem; text-align: center; margin-bottom: 2rem;">Meet the Team</h2>
+        <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+          <div style="text-align: center;">
+            <img src="{{ url_for('static', filename='image2.jpg') }}" alt="Team Member" style="border-radius: 50%; margin-bottom: 0.5rem;">
+            <p style="font-weight: 700;">Didi</p>
+            <p>Founder</p>
+          </div>
+          <div style="text-align: center;">
+            <img src="{{ url_for('static', filename='image1.jpg') }}" alt="Team Member" style="border-radius: 50%; margin-bottom: 0.5rem;">
+            <p style="font-weight: 700;">Nikol</p>
+            <p>Co Founder</p>
+          </div>
+          <div style="text-align: center;">
+            <img src="{{ url_for('static', filename='image4.jpg') }}" alt="Team Member" style="border-radius: 50%; margin-bottom: 0.5rem;">
+            <p style="font-weight: 700;">Mimi</p>
+            <p>Co founder</p>
+          </div>
+          <div style="text-align: center;">
+            <img src="{{ url_for('static', filename='image3.jpg') }}" alt="Team Member" style="border-radius: 50%; margin-bottom: 0.5rem;">
+            <p style="font-weight: 700;">Maq</p>
+            <p>Co founder</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

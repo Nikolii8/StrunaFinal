@@ -1,0 +1,266 @@
+/* Общ фон и базови настройки */
+.aboutpage {
+  background: radial-gradient(1200px 800px at -20% -10%, rgba(51, 206, 125, 0.15), transparent 60%),
+              radial-gradient(1000px 700px at 120% 10%, rgba(242, 161, 199, 0.2), transparent 60%),
+              #ffffff;
+  font-family: "Podkova", serif;
+  color: #0a0a0a;
+  padding-top: 110px;
+  overflow-x: hidden;
+}
+
+/* Grid overlay за декоративен ефект */
+.grid-ghost {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 120px 100%, 100% 120px;
+  opacity: 0.2; 
+}
+
+/* Хедър / навбар */
+.header {
+  position: fixed;
+  top: 0;
+  margin-top: -25px;
+  margin-left: -50px;
+  margin-right: 0;
+  width: 103%;
+  height: 90px;
+  background: #ffffff;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0 56px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+
+.logo {
+  justify-self: start;
+  margin-top: 20px;
+  margin-right: 20px;
+  font-weight: 1000;
+  font-size: 35px;
+  color: #33ce7d;
+  cursor: pointer;
+  font-family: "Podkova", serif;
+}
+
+.nav {
+  justify-self: center;
+  display: flex;
+  gap: 40px;
+  position : relative;
+}
+
+.nav a {/*navigation bar home, solutions, about us. insights*/
+  color: #0a0a0a;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 600;
+  margin-top: 20px;
+  font-family: "Podkova", serif;
+  transition: color 0.2s ease; 
+  display: inline-block;
+}
+
+.nav a::after {
+  display: block;
+  content: '';
+  border-bottom: solid 3px #33ce7d;
+  transform: scaleX(0);
+  transition: transform 350ms ease-in-out;
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+  transform: scaleX(1);
+}
+
+.actions {
+  justify-self: end;
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: 0.2s all ease;
+}
+
+.btn-outline {
+  background: #ffffff;
+  color: #33ce7d;
+  border-color: #33ce7d;
+}
+
+.btn-solid {
+  background: #33ce7d;
+  color: #ffffff;
+}
+
+.btn-outline:hover,
+.btn-solid:hover {
+  box-shadow: 0 6px 16px rgba(51, 206, 125, 0.3);
+}
+
+/* Hero секция за About Us */
+.about-hero {
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  font-family: "Podkova", serif;
+  margin-top: -100px;
+}
+
+.about-hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #8a2b5e;
+}
+
+.about-hero p {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 750px;
+  margin: 1rem auto 0;
+  line-height: 1.5;
+}
+
+/* Why Section Cards */
+.why-section {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 0 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.why-card {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: #f2fbf8;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease;
+}
+
+.why-card:hover {
+  transform: scale(1.02) rotate(-0.5deg);
+}
+
+.why-card:nth-child(even) {
+  flex-direction: row-reverse;
+  background: #fdf0f9;
+}
+
+.why-text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.75rem;
+  color: #33ce7d;
+}
+
+.why-text p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+.why-icon {
+  font-size: 3rem;
+  color: #b44579;
+}
+
+
+.why-card1 {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: #f2fbf8;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease;
+  width: 200px;
+}
+
+.why-card1:hover {
+  transform: scale(1.02) rotate(-0.5deg);
+}
+
+.why-card1:nth-child(even) {
+  flex-direction: row-reverse;
+  background: #fdf0f9;
+}
+
+.why-text1 h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.75rem;
+  color: #33ce7d;
+}
+
+.why-text1 p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+.contact-section {
+  display: flex;
+  align-items: flex-start;   /* изравнява горния ръб */
+  justify-content: space-between;
+  gap: 2rem;                 /* разстояние между формата и снимката */
+  margin-top: 2rem;
+  flex-wrap: wrap;           /* за по-малки екрани да се чупи на колона */
+}
+
+/* Картата (формата) да заема половината ширина */
+.why-card1 {
+  flex: 1;
+  max-width: 250px; 
+  margin-top: -25px;         /* за да не се свива прекалено */
+}
+
+/* Снимката до формата */
+.contact-image img {
+  max-width: 900px; 
+  width: 700px;  
+  height: 425px;       /* малко по-голяма снимка */
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  position: relative;
+  top: -10px;   
+  margin-top: -15px;             /* леко по-нагоре */
+}
+
+/* Адаптивен дизайн */
+@media (max-width: 900px) {
+  .why-card { flex-direction: column; text-align: center; }
+  .about-hero h1 { font-size: 2.5rem; }
+  .about-hero p { font-size: 1rem; }
+  .team-member img { width: 120px; height: 120px; }
+  .contact-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-image img {
+    max-width: 100%;
+    top: 0;
+  }
+
+  .why-card1 {
+    width: 100%;
+  }
+}

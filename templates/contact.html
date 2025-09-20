@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us - Struna</title>
+  <!-- CSS от static -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='contact.css') }}">
+  <!-- Google Fonts за Podkova -->
+  <link href="https://fonts.googleapis.com/css2?family=Podkova:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="aboutpage">
+
+  <!-- Декоративен grid overlay -->
+  <div class="grid-ghost"></div>
+
+  <!-- Хедър / навигация -->
+  <header class="header">
+    <div class="logo">Struna</div>
+    <nav class="nav">
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('about') }}">About Us</a>
+      <a href="{{ url_for('contact') }}" class="active">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero секция -->
+  <section class="about-hero">
+    <h1>Get in Touch</h1>
+    <p>Have questions or want to collaborate? Reach out to us and we’ll respond as soon as possible.</p>
+  </section>
+
+  <!-- Контактна форма -->
+  <section class="why-section">
+    <div class="why-card">
+      <div class="why-text">
+        <h2>Email Us</h2>
+        <p>Send us your inquiries at <strong>nikolii._.08@abv.bg</strong> and we’ll get back to you promptly.</p>
+      </div>
+    </div>
+
+    <div class="why-card">
+      <div class="why-text">
+        <h2>Call Us</h2>
+        <p>Prefer to talk? Our support line is open Monday to Friday from 9 AM to 6 PM: <strong>+359 88 499 9440</strong></p>
+      </div>
+    </div>
+
+    <!-- ТУК слагаме form + image в един flex контейнер -->
+    <div class="contact-section">
+      <div class="why-card1">
+        <div class="why-text1">
+          <h2>Send a Message</h2>
+          <form action="#" method="post" style="display:flex; flex-direction:column; gap:1rem;">
+            <input type="text" name="name" placeholder="Your Name" required 
+                  style="padding:12px; border-radius:12px; border:1px solid #ccc; font-family:'Podkova', serif;">
+            <input type="email" name="email" placeholder="Your Email" required 
+                  style="padding:12px; border-radius:12px; border:1px solid #ccc; font-family:'Podkova', serif;">
+            <textarea name="message" placeholder="Your Message" rows="6" required 
+                      style="padding:12px; border-radius:12px; border:1px solid #ccc; font-family:'Podkova', serif;"></textarea>
+            <button type="submit" class="btn btn-solid" style="align-self:flex-start;">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="contact-image">
+        <img src="{{ url_for('static', filename='contactUs.webp') }}" alt="Contact Image">
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

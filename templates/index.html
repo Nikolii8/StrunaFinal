@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <title>Modern Homepage</title>
+  <!-- CSS от static -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <!-- Google Fonts за Podkova -->
+  <link href="https://fonts.googleapis.com/css2?family=Podkova:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="homepage">
+
+  <!-- Декоративна grid overlay -->
+  <div class="grid-ghost"></div>
+
+  <!-- Хедър с навигация -->
+  <header class="header">
+    <div class="logo">Struna</div>
+
+    <nav class="nav">
+      <a href="{{ url_for('index') }}" class="active">Home</a>
+      <a href="{{ url_for('about') }}">About Us</a>
+      <a href="{{ url_for('contact') }}">Contact</a>
+    </nav>
+
+  </header>
+
+  <!-- Hero секция -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="pink-circle"></div>
+      <h1 class="headline">
+        Maintain good <span class="highlight"><span class="highlight-bg"></span><span class="highlight-text">posture </span></span> every day
+      </h1>
+      <button class="btn btn-learn">Learn More</button>
+    </div>
+
+    <div class="hero-right">
+      <div class="image-circle">
+        <img src="{{ url_for('static', filename='struna_pic.webp') }}" alt="Hero image">
+      </div>
+    </div>
+  </section>
+
+  <!-- Декоративна линия с точки -->
+  <div class="divider-dots"></div>
+
+  <!-- CTA секция -->
+  <section class="cta-section">
+    <h2 class="cta-title">Join Us Now</h2>
+    <p class="cta-sub">Your success starts here</p>
+    <div class="cta-actions">
+      <button class="btn btn-solid">Buy now</button>
+      <span id="buyCounter">0</span>
+    </div>
+  </section>
+
+<script>
+  const counterEl = document.getElementById("buyCounter");
+
+  // Зареждаме брояча при отваряне на страницата
+  async function loadCount() {
+    try {
+      const res = await fetch("/count");
+      const data = await res.json();
+      if (counterEl) counterEl.textContent = data.clicks;
+    } catch (error) {
+      console.error("Error loading count:", error);
+    }
+  }
+
+  document.querySelector(".btn-solid").addEventListener("click", async () => {
+    try {
+      // Увеличаваме брояча
+      const res = await fetch("/click", { method: "POST" });
+      const data = await res.json();
+      if (counterEl) counterEl.textContent = data.clicks;
+
+      // Pop-up за имейл
+      const email = prompt("Sorry, this product is out of stock. Enter your email to be notified when it's available:");
+      if (email) {
+        await fetch("/waitlist", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email })
+        });
+        alert("Thank you! We will notify you when the product is back in stock.");
+      }
+
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  });
+
+  loadCount();
+</script>
+
+  <!-- Вълна -->
+  <div class="wave"></div>
+
+  <!-- Services -->
+  <section class="services">
+    <h2 class="services-title">Our Solution</h2>
+
+    <div class="service service-a">
+      <div class="service-copy">
+        <span class="service-chip">Device</span>
+        <p>Our posture monitoring project is an intelligent system embedded in a tank top, providing discreet and comfortable real-time posture tracking and improvement.</p>
+      </div>
+      <div class="service-media1">
+        <img src="{{ url_for('static', filename='struna_pic.webp') }}" alt="Service 1">
+      </div>
+    </div>
+
+    <div class="service service-b">
+      <div class="service-copy">
+        <span class="service-chip">App</span>
+        <p>The companion app for the device lets users monitor their posture in real time, track the duration of correct and incorrect posture, and receive timely notifications to help them improve.</p>
+      </div>
+      <div class="service-media2">
+        <img src="{{ url_for('static', filename='telefon1.jpg') }}" alt="Service 2">
+      </div>
+    </div>
+  </section>
+
+  <!-- Декоративни арки -->
+  <div class="bottom-arcs">
+    <div class="arc arc-green"></div>
+    <div class="arc arc-pink"></div>
+    <div class="arc arc-magenta"></div>
+  </div>
+
+</body>
+</html>
